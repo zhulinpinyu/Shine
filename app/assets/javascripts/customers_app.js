@@ -2,17 +2,18 @@ var app = angular.module('customers',[]);
 app.controller('CustomerSearchCtrl',function($scope,$http){
   var page = 0;
   $scope.search = function(searchTerm){
-    $scope.searchedFor = searchTerm;
-    $http.get('/customers.json',
-      {
-        "params": {
-          "keywords": searchTerm,
-          "page": page
+    if(searchTerm.length > 1){
+      $http.get('/customers.json',
+        {
+          "params": {
+            "keywords": searchTerm,
+            "page": page
+          }
         }
-      }
-    ).then(function(response){
-      $scope.customers = response.data;
-    });
+      ).then(function(response){
+        $scope.customers = response.data;
+      });
+    }
   };
   $scope.previousPage = function(){
     if(page > 0){
