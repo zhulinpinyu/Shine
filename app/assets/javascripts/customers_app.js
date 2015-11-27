@@ -1,6 +1,7 @@
 var app = angular.module('customers',[]);
 app.controller('CustomerSearchCtrl',function($scope,$http){
   var page = 0;
+  $scope.customers = [];
   $scope.search = function(searchTerm){
     if(searchTerm.length > 1){
       $http.get('/customers.json',
