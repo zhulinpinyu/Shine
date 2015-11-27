@@ -7,9 +7,13 @@ app.config(function($routeProvider){
     controller: "CustomerSearchCtrl",
     templateUrl: "customer_search.html"
   });
+  $routeProvider.when('/:id',{
+    controller: "CustomerDetailCtrl",
+    templateUrl: "customer_detail.html"
+  });
 });
 
-app.controller('CustomerSearchCtrl',function($scope,$http){
+app.controller('CustomerSearchCtrl',function($scope,$http, $location){
   var page = 0;
   $scope.customers = [];
   $scope.search = function(searchTerm){
@@ -36,4 +40,17 @@ app.controller('CustomerSearchCtrl',function($scope,$http){
     page = page + 1;
     $scope.search($scope.keywords)
   }
+  $scope.viewDetails = function(customer){
+    $location.path("/"+customer.id);
+  }
+});
+
+app.controller('CustomerDetailCtrl',function($scope,$http,$routeParams){
+  var customerId = $routeParams.id;
+  $scope.customer = {};
+  $http.get(
+    "/customers/"+customerId+".json"
+  ).then(function(response){
+    $scope.customer = response.data;
+  });
 });
