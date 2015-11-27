@@ -1,7 +1,7 @@
 describe("CustomerSearchCtrl",function(){
+  var scope = null ,ctrl = null;
+  beforeEach(module("customers"));
   describe("Initialization", function(){
-    var scope = null ,ctrl = null;
-    beforeEach(module("customers"));
     beforeEach(inject(function($controller, $rootScope){
       scope = $rootScope.$new();
       ctrl = $controller("CustomerSearchCtrl",{
@@ -15,9 +15,7 @@ describe("CustomerSearchCtrl",function(){
   });
 
   describe("Fetching Search Results", function(){
-    var scope = null,
-        ctrl = null,
-        httpBackend = null,
+    var httpBackend = null,
         serverResults = [
           {
             id: 123,
@@ -34,7 +32,6 @@ describe("CustomerSearchCtrl",function(){
             username: "bobbyj"
           }
         ];
-    beforeEach(module("customers"));
     beforeEach(inject(function($controller, $rootScope, $httpBackend){
       scope = $rootScope.$new();
       httpBackend = $httpBackend;
