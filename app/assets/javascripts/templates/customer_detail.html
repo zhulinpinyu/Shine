@@ -1,3 +1,147 @@
+<form>
+  <div class="row">
+    <div class="col-md-6">
+      <article class="panel panel-primary">
+        <header class="panel-heading">
+          <h3 class="h4">Customer</h3>
+        </header>
+        <section class="panel-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="first-name">First Name</label>
+                <input type="text" name="first-name" class="form-control" value="Bob">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="last-name">Last Name</label>
+                <input type="text" name="last-name" class="form-control" value="Jones">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="username">First Name</label>
+                <div class="input-group">
+                  <div class="input-group-addon">@</div>
+                  <input type="text" name="username" class="form-control" value="bobert123">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input type="text" name="email" class="form-control" value="bobbyj@somewhere.net">
+          </div>
+        </section>
+        <footer class="panel-footer">
+          <label for="joined">Joined</label> 12/13/2014
+        </footer>
+      </article>
+      <article class="panel panel-default">
+        <header class="panel-heading">
+          <h2>Shipping Address</h2>
+        </header>
+        <section class="panel-body">
+          <div class="form-group">
+            <label for="street-address" class="sr-only">
+              Street address
+            </label>
+            <input type="text" class="form-control" name="street-address" value="123 Any St">
+          </div>
+          <div class="form-group">
+            <label for="street-address-extra" class="sr-only">
+              Street address Extra
+            </label>
+            <input type="text" class="form-control" name="street-address-extra" value="Unit 101">
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="city" class="sr-only">City</label>
+                <input type="text" class="form-control" name="city" value="Washington">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="state" class="sr-only">State</label>
+                <input type="text" class="form-control" name="state" value="DC">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="zip" class="sr-only">
+                  Zip
+                </label>
+                <input type="text" class="form-control" name="zip" value="20001">
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+    <div class="col-md-6">
+      <article class="panel panel-default">
+        <header class="panel-heading">
+          <h2 class="h4">Billing Info</h2>
+        </header>
+        <section class="panel-body">
+          <div class="row">
+            <div class="col-md-7">
+              <p class="h4">
+                ****-****-****-1234
+                <span class="label label-success">VISA</span>
+              </p>
+              <p>
+                <label>Expires:</label> 04/19
+              </p>
+            </div>
+            <div class="col-md-5 text-right">
+              <button class="btn btn-lg btn-default">
+                View Details...
+              </button>
+            </div>
+          </div>
+          <h3>Billing Address <input type="checkbox"><small>Same as shipping?</small></h3>
+          <div class="form-group">
+            <label for="street-address" class="sr-only">
+              Street address
+            </label>
+            <input type="text" class="form-control" name="street-address" value="123 Any St">
+          </div>
+          <div class="form-group">
+            <label for="street-address-extra" class="sr-only">
+              Street address Extra
+            </label>
+            <input type="text" class="form-control" name="street-address-extra" value="Unit 101">
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="city" class="sr-only">City</label>
+                <input type="text" class="form-control" name="city" value="Washington">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="state" class="sr-only">State</label>
+                <input type="text" class="form-control" name="state" value="DC">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="zip" class="sr-only">
+                  Zip
+                </label>
+                <input type="text" class="form-control" name="zip" value="20001">
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+</form>
 <article class="customer-details">
   <h1>Customer {{customer.id}}</h1>
   <h2>{{customer.first_name}}{{customer.last_name}}</h2>
