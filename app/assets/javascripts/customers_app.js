@@ -1,5 +1,6 @@
 var app = angular.module('customers',[
   'ngRoute',
+  'ngResource',
   'templates'
 ]);
 app.config(function($routeProvider){
