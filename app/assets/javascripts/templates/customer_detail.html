@@ -82,7 +82,7 @@
       </article>
     </div>
     <div class="col-md-6">
-      <article class="panel panel-default">
+      <article class="panel panel-default" ng-controller="CustomerCreditCardCtrl">
         <header class="panel-heading">
           <h2 class="h4">Billing Info</h2>
         </header>
@@ -90,17 +90,17 @@
           <div class="row">
             <div class="col-md-7">
               <p class="h4">
-                ****-****-****-1234
-                <span class="label label-success">VISA</span>
+                ****-****-****-{{creditCard.lastFour}}
+                <span class="label label-success">{{creditCard.cardType}}</span>
               </p>
               <p>
-                <label>Expires:</label> 04/19
+                <label>Expires:</label> {{creditCard.expirationMonth}}/{{creditCard.expirationYear}}
               </p>
             </div>
             <div class="col-md-5 text-right">
-              <button class="btn btn-lg btn-default">
+              <a href="{{creditCard.detailsLink}}" class="btn btn-lg btn-default">
                 View Details...
-              </button>
+              </a>
             </div>
           </div>
           <h3>Billing Address <input type="checkbox"><small>Same as shipping?</small></h3>

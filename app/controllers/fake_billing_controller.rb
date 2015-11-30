@@ -7,7 +7,7 @@ class FakeBillingController < ApplicationController
         lastFour: Faker::Business.credit_card_number[-4..-1],
         cardType: Faker::Business.credit_card_type,
         expirationMonth: Faker::Business.credit_card_expiry_date.month,
-        cardType: Faker::Business.credit_card_expiry_date.year,
+        expirationYear: Faker::Business.credit_card_expiry_date.year,
         detailsLink: Faker::Internet.url,
       }
     else
