@@ -53,12 +53,8 @@ app.controller('CustomerDetailCtrl',function($scope,$routeParams,$resource){
   var Customer = $resource('customers/:customerId.json');
   $scope.customer = Customer.get({"customerId": $scope.customer_id});
   $scope.save = function() {
-    if($scope.form.email.$vaild){
-      alert("Email is vaild");
-    }else if($scope.form.email.$error.required){
-      alert("Email is required")
-    }else if($scope.form.email.$error.email){
-      alert("Email must look like an email.")
+    if($scope.form.$valid){
+      alert("Save!");
     }
   }
 });
