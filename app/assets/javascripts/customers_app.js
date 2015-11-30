@@ -46,12 +46,9 @@ app.controller('CustomerSearchCtrl',function($scope,$http, $location){
   }
 });
 
-app.controller('CustomerDetailCtrl',function($scope,$http,$routeParams){
+app.controller('CustomerDetailCtrl',function($scope,$routeParams,$resource){
   var customerId = $routeParams.id;
   $scope.customer = {};
-  $http.get(
-    "/customers/"+customerId+".json"
-  ).then(function(response){
-    $scope.customer = response.data;
-  });
+  var Customer = $resource('customers/:customerId.json');
+  $scope.customer = Customer.get({"customerId": customerId});
 });
