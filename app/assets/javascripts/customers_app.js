@@ -47,13 +47,15 @@ app.controller('CustomerSearchCtrl',function($scope,$http, $location){
 });
 
 app.controller('CustomerDetailCtrl',function($scope,$routeParams,$resource){
-  var customerId = $routeParams.id;
+  $scope.customer_id = $routeParams.id;
   $scope.customer = {};
   var Customer = $resource('customers/:customerId.json');
-  $scope.customer = Customer.get({"customerId": customerId});
+  $scope.customer = Customer.get({"customerId": $scope.customer_id});
 });
 
 app.controller('CustomerCreditCardCtrl', function($scope,$resource){
   var CreditCardInfo = $resource('/fake_billing.json')
-  $scope.creditCard = CreditCardInfo.get({"cardholder_id": 2351});
+  $scope.setCardholderId = function(cardholderId){
+    $scope.creditCard = CreditCardInfo.get({"cardholder_id": cardholderId});
+  }
 });
