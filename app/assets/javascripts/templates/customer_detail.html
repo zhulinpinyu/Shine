@@ -82,27 +82,41 @@
       </article>
     </div>
     <div class="col-md-6">
-      <article class="panel panel-default" ng-controller="CustomerCreditCardCtrl">
+      <article class="panel panel-default">
         <header class="panel-heading">
           <h2 class="h4">Billing Info</h2>
         </header>
         <section class="panel-body">
-          <div class="row">
-            <div class="col-md-7">
-              <p class="h4">
-                ****-****-****-{{creditCard.lastFour}}
-                <span class="label label-success">{{creditCard.cardType}}</span>
-              </p>
-              <p>
-                <label>Expires:</label> {{creditCard.expirationMonth}}/{{creditCard.expirationYear}}
-              </p>
+          <article ng-controller="CustomerCreditCardCtrl">
+            <div class="row">
+              <div ng-if="!creditCard.$resolved">
+                <div class="col-md-10 col-md-offset-1">
+                  <aside class="progress">
+                    <div class="progress-bar progress-bar-striped active" style="width: 100%">
+                      Loading
+                    </div>
+                  </aside>
+                </div>
+              </div>
+              <div ng-if="creditCard.$resolved">
+                <div class="col-md-7">
+                  <p class="h4">
+                    ****-****-****-{{creditCard.lastFour}}
+                    <span class="label label-success">{{creditCard.cardType}}</span>
+                  </p>
+                  <p>
+                    <label>Expires:</label> {{creditCard.expirationMonth}}/{{creditCard.expirationYear}}
+                  </p>
+                </div>
+                <div class="col-md-5 text-right">
+                  <a href="{{creditCard.detailsLink}}" class="btn btn-lg btn-default">
+                    View Details...
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="col-md-5 text-right">
-              <a href="{{creditCard.detailsLink}}" class="btn btn-lg btn-default">
-                View Details...
-              </a>
-            </div>
-          </div>
+          </article>
+
           <h3>Billing Address <input type="checkbox"><small>Same as shipping?</small></h3>
           <div class="form-group">
             <label for="street-address" class="sr-only">
