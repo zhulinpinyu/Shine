@@ -50,11 +50,20 @@ app.controller('CustomerSearchCtrl',function($scope,$http, $location){
 app.controller('CustomerDetailCtrl',function($scope,$routeParams,$resource){
   $scope.customer_id = $routeParams.id;
   $scope.customer = {};
-  var Customer = $resource('customers/:customerId.json');
+  var Customer = $resource('customers/:customerId.json',
+                            {"customerId": "@customer_id"},
+                            {"save": {"method": "PUT"}});
   $scope.customer = Customer.get({"customerId": $scope.customer_id});
   $scope.save = function() {
     if($scope.form.$valid){
-      alert("Save!");
+      $scope.customer.$save(function(){
+        $scope.form.$setPristine();
+        $scope.form.$setUntouched();
+        alert("Save Successful!");
+      },
+      function(){
+        alert("Save Failed ):!:(");
+      });
     }
   }
 });
